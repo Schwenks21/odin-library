@@ -1,0 +1,85 @@
+.container {
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    text-align: center;
+    line-height: 1.5;
+    background-color: #588157;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.header {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: white;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    box-sizing: border-box;
+    padding: 50px;
+    position: relative;
+}
+
+#book-form {
+    color: black;
+    display: none;
+    background: white;  
+    border: 2px solid black;
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: 200px;
+    justify-self: center;
+    box-shadow: 3px 3px 10px gray;
+    z-index: 10;
+}
+
+form {
+    padding: 50px 20px 50px 20px;
+    display: flex;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 100px 200px;
+    gap: 10px;
+    text-align: right;
+}
+
+#submit {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.table {
+    grid-column: 2 / 3;
+    position: relative;
+}
+
+th {
+    font-size: large;
+    font-weight: bold;
+}
+
+td, tr, th {
+    height: 50px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
