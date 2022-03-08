@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Personal Library</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Library</h1>
+            <button id="add-book-btn">Add Book</button>
+        </div>
+        <div id="book-form">
+            <form action="#">
+                <ul>
+                    <li>
+                        <label for="bookTitle">Book Title:</label>
+                        <input type="text" id="bookTitle">
+                    </li>
+                    <li>
+                        <label for="bookAuthor">Author:</label>
+                        <input type="text" id="bookAuthor">
+                    </li>
+                    <li>  
+                        <label for="bookPages">Pages:</label>
+                        <input type="number" id="bookPages">
+                    </li>
+                    <li>
+                        <label for="read">Read?</label>
+                        <select id="readBook" name="read-book">
+                            <option>Read</option>
+                            <option>Not Read</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button id="submit">Submit</button>
+                    </li>
+                </ul>  
+            </form>
+        </div>
+        <div class="main">
+            <table class="table">
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read?</th>
+                </tr>
+                <tr>
+                    <td>The Stand</td>
+                    <td>Stephen King</td>
+                    <td>1300</td>
+                    <td>Read</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
