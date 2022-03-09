@@ -23,42 +23,80 @@ function addBooktoLibrary () {
     const newTitle = document.querySelector('#bookTitle').value;
     const newAuthor = document.querySelector('#bookAuthor').value;
     const newPages = document.querySelector('#bookPages').value;
-    const newRead = document.querySelector('#readBook').value;
+    const newStatus = document.querySelector('#readStatus').checked;
     
-    const newBook = new Book(newTitle, newAuthor, newPages, newRead);
+    const newBook = new Book(newTitle, newAuthor, newPages, newStatus);
     myLibrary.push(newBook);
     //TEST
-    console.dir(newBook);
+    console.dir(myLibrary);
     
-    createEntry(newTitle, newAuthor, newPages, newRead);
+    createEntry (newBook);
 }
 
-function createEntry (title, author, pages, status) {
+// function displayBooks() {
+//     myLibrary.forEach(book => {
+//         //make new table row
+//         const table = document.querySelector('.table');
+//         const row = document.createElement('tr');
+//         row.classList.add('row');
+//         table.appendChild(row);
+
+//         //make row contents
+//         const bookName = document.createElement('td');
+//         bookName.textContent = book.title;
+//         bookName.classList.add('title');
+//         row.appendChild(bookName);
+
+//         const authorName = document.createElement('td');
+//         authorName.textContent = book.author;
+//         authorName.classList.add('author');
+//         row.appendChild(authorName);
+
+//         const bookPages = document.createElement('td');
+//         bookPages.textContent = book.pages;
+//         bookPages.classList.add('pages');
+//         row.appendChild(bookPages);
+
+//         // const bookRead = document.createElement('td');
+//         // bookRead.textContent = book.status;
+//         // bookPages.classList.add('read');
+//         // row.appendChild(bookRead);
+//     });
+// };
+
+function createEntry (book) {
     //make new table row
     const table = document.querySelector('.table');
     const row = document.createElement('tr');
     row.classList.add('row');
     table.appendChild(row);
+
     //make row contents
     const bookName = document.createElement('td');
-    bookName.textContent = title;
+    bookName.textContent = book.title;
     bookName.classList.add('title');
     row.appendChild(bookName);
 
     const authorName = document.createElement('td');
-    authorName.textContent = author;
+    authorName.textContent = book.author;
     authorName.classList.add('author');
     row.appendChild(authorName);
 
     const bookPages = document.createElement('td');
-    bookPages.textContent = pages;
+    bookPages.textContent = book.pages;
     bookPages.classList.add('pages');
     row.appendChild(bookPages);
 
     const bookRead = document.createElement('td');
-    bookRead.textContent = status;
-    bookPages.classList.add('read');
+    if (book.status) {
+        bookRead.textContent = 'Read';
+    } else {
+        bookRead.textContent = 'Not Read';
+    }
+    bookRead.classList.add('read');
     row.appendChild(bookRead);
+
+    bookForm.reset();
 };
 
 function closeForm () {
