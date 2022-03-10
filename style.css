@@ -1,41 +1,54 @@
+:root {
+    font-family: 'League Spartan', sans-serif;
+}
+
 .container {
     display: grid;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: 200px 1fr;
     text-align: center;
     line-height: 1.5;
-    background-color: #588157;
-    color: #FFFFFF;
+    background-color: #E1E5EE;
+    color: #2A324B;
     box-sizing: border-box;
     position: relative;
+    height: 100vh;
 }
 
 .header {
-    font-size: x-large;
+    background-color: #2A324B;
+    color: #F7C59F;
+    font-size: 3rem;
     font-weight: bold;
-    padding: 30px;
+    height: 200px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px #767B91;
 }
 
 .main {
-    background-color: white;
-    color: black;
     display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
+    grid-template-columns: 1fr 20fr 1fr;
     box-sizing: border-box;
     padding: 50px;
-    position: relative;
+    position:relative;
+    height: min-content;
+    align-self: start;
 }
 
+/*-------------Add Book Form Style-------------*/
 #book-form {
     color: black;
     display: none;
-    background: white;  
-    border: 2px solid black;
+    background-color: #F7C59F;  
+    border: 2px solid #767B91;
     border-radius: 10px;
     width: 350px;
     height: 400px;
     position: absolute;
-    top: 200px;
+    top: 250px;
     justify-self: center;
     box-shadow: 3px 3px 10px gray;
     z-index: 10;
@@ -59,28 +72,54 @@ li {
     text-align: right;
 }
 
+#bottom {
+    display: flex;
+    justify-content: space-around;
+}
+
 #submit {
-    grid-column: 1 / -1;
     justify-self: center;
+}
+
+button {
+    font-family: 'League Spartan', sans-serif;
     width: 100px;
     height: 30px;
     border-radius: 5px;
+    font-size: 1rem;
+    background-color: #E1E5EE;
 }
 
+
+/*----------Library Table Style----------*/
 .table {
     grid-column: 2 / 3;
     position: relative;
 }
 
 th {
-    font-size: large;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
-td, tr, th {
+td, th {
+    display: grid;
     height: 50px;
-    text-align: left;
-    vertical-align: middle;
-    border-bottom: 1px solid gray;
     padding: 5px;
+    justify-items: left;
+    align-items: center;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 125px 125px;
+    border-bottom: 1px solid #767B91;
+}
+
+.read-status-button {
+    border: 2px solid red;
+}
+
+.read {
+    border: 2px solid green;
 }
