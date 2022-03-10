@@ -10,6 +10,14 @@ function Book (title, author, pages, status) {
     this.status = status
 }
 
+Book.prototype.toggleReadStatus = function () {
+    if (this.status) {
+        return this.status = false;
+    } else {
+        return this.status = true;
+    }
+}
+
 const bookForm = document.querySelector('#book-form');
 const addBookBtn = document.querySelector('#add-book-btn');
 addBookBtn.addEventListener('click', displayForm);
@@ -61,38 +69,56 @@ function displayBooks() {
         bookPagesCell.classList.add('pages-cell');
         row.appendChild(bookPagesCell);
 
+        //buttons for read status of books in library
         const bookReadCell = document.createElement('td');
+        const bookReadButton = document.createElement('button');
         if (book.status) {
-            bookReadCell.textContent = 'Read';
+            bookReadButton.textContent = 'Read';
         } else {
-            bookReadCell.textContent = 'Not Read';
+            bookReadButton.textContent = 'Not Read';
         }
         bookReadCell.classList.add('read-cell');
+        bookReadButton.classList.add('read-status-button');
         row.appendChild(bookReadCell);
+        bookReadCell.appendChild(bookReadButton);
+        bookReadButton.setAttribute('data-index', myLibrary.indexOf(book));
 
         //create cell for delete book button
-        const statusButtonCell = document.createElement('td');
-        statusButtonCell.classList.add('button-cell')
-        row.appendChild(statusButtonCell);
+        const deleteButtonCell = document.createElement('td');
+        deleteButtonCell.classList.add('button-cell')
+        row.appendChild(deleteButtonCell);
 
         //create delete book button
-        const statusButton = document.createElement('button');
-        statusButton.textContent = "Remove Book";
-        statusButton.classList.add('status-button');
-        statusButton.setAttribute('data-index', myLibrary.indexOf(book));
-        statusButtonCell.appendChild(statusButton);
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = "Remove Book";
+        deleteButton.classList.add('delete-button');
+        deleteButton.setAttribute('data-index', myLibrary.indexOf(book));
+        deleteButtonCell.appendChild(deleteButton);
     });
 
     document.querySelector('#input').reset();
 
+    //code for book read status buttons
+    const bookReadButtons = document.querySelectorAll('.read-status-button');
+    bookReadButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            const book = myLibrary[e.target.dataset.index];
+            book.toggleReadStatus();
+            if (book.status) {
+                e.target.textContent = "Read";
+            } else {
+                e.target.textContent = "Not Read";
+            };
+        });
+    });
+
     //code for remove book button
-    const removeBookButtons = document.querySelectorAll('.status-button');
+    const removeBookButtons = document.querySelectorAll('.delete-button');
     removeBookButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             removeBookFromLibrary(e.target.dataset.index);
             displayBooks();
         });
-    
     });
 };
 
@@ -100,36 +126,7 @@ function displayBooks() {
 function removeBookFromLibrary (bookIndex) {
     tableBody.innerHTML = '';
     myLibrary.splice(bookIndex, 1);
-    console.log(myLibrary);
 };
-
-// function assignDataKeysToButtons () {
-//     //attach data-keys to every book displayed in table
-//     for (i = 0; i <= myLibrary.length - 1; i++) {
-        
-//     };
-
-// }
-
-// const removeBookButtons = document.querySelectorAll('.status-button');
-
-// removeBookButtons.forEach(button => {
-//     button.addEventListener('click', removeBookFromLibrary (e.target.dataset.index));
-//     console.dir(e.target.dataset.index);
-// });
-
-// function removeBookFromLibrary (bookIndex) {
-//     for (i = 0; i <= myLibrary.length; i++) {
-//         if (myLibrary[i] === bookIndex) {
-//             myLibrary.splice(i, 1);
-//         }
-//     }
-//     displayBooks ();
-// };
-
-
-
-
 
 
 //The following function adds one book to the myLibrary array at a time, however, I think I'll need to
