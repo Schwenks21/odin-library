@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Personal Library</title>
@@ -16,11 +19,11 @@
             <button id="add-book-btn">Add Book</button>
         </div>
         <div id="book-form">
-            <form id="input" action="#">
+            <form id="input" action="#" method="#">
                 <ul>
                     <li>
                         <label for="bookTitle">Book Title:</label>
-                        <input type="text" id="bookTitle">
+                        <input type="text" id="bookTitle" name="bookTitle">
                     </li>
                     <li>
                         <label for="bookAuthor">Author:</label>
@@ -34,8 +37,9 @@
                         <label for="readStatus">Read?</label>
                         <input type="checkbox" id="readStatus">
                     </li>
-                    <li>
-                        <button id="submit">Submit</button>
+                    <li id="bottom">
+                        <button id="cancel">Cancel</button>
+                        <button type="submit" id="submit">Submit</button>
                     </li>
                 </ul>  
             </form>
@@ -47,7 +51,7 @@
                         <th>Book</th>
                         <th>Author</th>
                         <th>Pages</th>
-                        <th>Read?</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
