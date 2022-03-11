@@ -101,8 +101,6 @@ function displayBooks() {
         deleteButtonCell.appendChild(deleteButton);
     });
 
-    document.querySelector('#input').reset();
-
     //code for book read status buttons
     const bookReadButtons = document.querySelectorAll('.read-status-button');
     bookReadButtons.forEach(button => {
@@ -136,6 +134,7 @@ function removeBookFromLibrary (bookIndex) {
 
 function closeForm () {
     bookForm.style.display = 'none';
+    document.querySelector('#input').reset();
 }
 
 displayBooks ();
