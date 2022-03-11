@@ -10,7 +10,7 @@ This project utilizes what I've learned in recent lessons on objects and object 
 
 Live Preview: 
 
-https://schwenks21.github.io/odin-library/?#
+https://schwenks21.github.io/odin-library/
 
 Screenshot:
 
