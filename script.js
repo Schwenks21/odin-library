@@ -134,7 +134,6 @@ function removeBookFromLibrary (bookIndex) {
 
 function closeForm () {
     bookForm.style.display = 'none';
-    document.querySelector('#input').reset();
 }
 
 displayBooks ();
