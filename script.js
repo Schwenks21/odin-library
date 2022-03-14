@@ -136,4 +136,4 @@ function closeForm () {
     bookForm.style.display = 'none';
 }
 
-displayBooks ();
+displayBooks();
